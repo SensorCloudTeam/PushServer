@@ -1,0 +1,19 @@
+{
+  "name": "PushServer",
+  "version": "1.0.0",
+  "description": "this is the push server for SensorCloud.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "push",
+    "server"
+  ],
+  "author": "Yvan Liu",
+  "license": "ISC",
+  "dependencies": {
+        "jpush-sdk": "*",
+        "mysql": "*"
+  }
+}
