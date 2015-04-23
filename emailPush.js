@@ -71,7 +71,9 @@ later.date.localTime(); // ���ñ���ʱ��
 var Map = require('./libs.js');
 var subMap = new Map();
 function init(){
-    execute();
+    var schedule = later.parse.recur().
+        every(1).minute();
+    var t = later.setInterval(execute.bind(this), schedule);
 }
 
 function execute(){
