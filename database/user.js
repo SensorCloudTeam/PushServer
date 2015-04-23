@@ -12,9 +12,8 @@ Node.check = function(user,func){
 	connection.query('SELECT * FROM '+TABLE+' WHERE id= ? and password = ?',[user.id,user.password],
 		function(err, results){
 			if(err) throw err;
-			if(results.length>0){
-				func();
-			}
+			func();
+
 		}
 	);
 	

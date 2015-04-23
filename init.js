@@ -1,7 +1,5 @@
+var pushServer = require('./push.js');
 var configure = require('./configure.js');
-// var JPush = require('jpush-sdk');
-// var client = JPush.buildClient(configure.app.appKey,configure.app.masterSecret);
-
 var table_jpush = require('./database/pushreg.js');
 var table_user = require('./database/user.js');
 
@@ -68,5 +66,9 @@ var  updateData = function(params,response){
 
 	
 };
+
+/*启动推送服务*/
+pushServer.init();
+//pushServer.checkMessage();
 
 

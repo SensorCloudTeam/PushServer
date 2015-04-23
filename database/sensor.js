@@ -60,5 +60,35 @@ SENSOR.select = function(sensor,func){
 		});
 
 };
+SENSOR.getTypeById = function(id,func){
+
+	connection.query('use '+DATABASE);
+	var query = connection.query('SELECT * from '+TABLE+' WHERE	id=?',[id], function (err,results) {
+		if(err) throw err;
+		if(results){
+			console.log(results[0].type_id);
+			connection.query('SELECT name from TYPE WHERE id=?',[results[0].type_id], function (err,rows) {
+				if(err) throw err;
+				if(func){
+					func(rows[0]);
+				}
+			});
+		}
+
+	});
+};
+
+SENSOR.getValueById = function(id,func){
+	connection.query('use '+DATABASE);
+	connection.query('select * from '+TABLE+ ' where id = ? ;',
+		[id],
+		function(err,rows,fields){
+			if(err) throw err;
+			if(func){
+				func(rows);
+			}
+		});
+
+};
 
 module.exports = SENSOR;

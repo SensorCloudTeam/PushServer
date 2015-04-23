@@ -6,7 +6,6 @@ var DATABASE = sqlmanager.DATABASE;
 
 module.exports = Node;
 Node.insert = function(user,func){
-
 	connection.query('use '+DATABASE);
 	var query = connection.query('INSERT INTO '+TABLE+' '+'SET user_id=?,regID=?;',
 		[user.user_id, user.regID],
@@ -31,9 +30,6 @@ Node.update = function(user,func){
 		});
 };
 Node.delete = function(user_id,func){
-	this.errTip = '[pushreg] delete error';
-	this.func = func;
-
 	connection.query('use '+DATABASE);
 	connection.query('DELETE FROM '+TABLE+' '+'WHERE user_id=?',
 		[user_id],
@@ -46,7 +42,6 @@ Node.delete = function(user_id,func){
 };
 
 Node.updateOrInsert = function(user,func){
-	
 	connection.query('use '+DATABASE);
 	connection.query('SELECT * FROM '+TABLE+' WHERE user_id=?',[user.user_id],
 		function(err, results){
